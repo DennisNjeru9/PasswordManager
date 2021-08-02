@@ -18,8 +18,22 @@ class User:
         self.username = username
         self.password = password
 
+    pass
 
 
+class Credentials:
+    '''
+    Class that generates new instances of credentials.
+    '''
 
+    def __init__(self, account_name, account_password):
+        '''
+        Args:
+            account_name: The name of the account.
+            account_password: The password for the corresponding account.
+        '''
+
+        self.account_name = account_name
+        self.account_password = account_password
 
     pass
