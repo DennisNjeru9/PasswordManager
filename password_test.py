@@ -20,7 +20,7 @@ class TestUser(unittest.TestCase):
 
     def tearDown(self):
         '''
-        tearDown method that cleans up after each test case has run t avoid repitition of input. 
+        tearDown method that cleans up after each test case has run to avoid repitition of input. 
         '''
 
         User.user_list = []
@@ -56,7 +56,7 @@ class TestCredentials(unittest.TestCase):
     
     def tearDown(self):
         '''
-        tearDown method that cleans up after each test case has run t avoid repitition of input. 
+        tearDown method that cleans up after each test case has run to avoid repitition of input. 
         '''
         Credentials.credentials_list = []
 
@@ -89,6 +89,19 @@ class TestCredentials(unittest.TestCase):
         test_credentials = Credentials("Facebook","Kata-naah", "n@4HK@t4")
         test_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),2)
+
+
+    def test_delete_credentials(self):
+        '''
+        test_delete_credentials to check if a user can remove a credential from the credentials_list.
+        '''
+        
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Instagram", "Toshphi", "t0sHpH!") #new credential
+        test_credentials.save_credentials()
+
+        self.new_credentials.delete_credentials() #Deleting a credentials object
+        self.assertEqual(len(Credentials.credentials_list),1)
 
 
 if __name__ == '__main__':
