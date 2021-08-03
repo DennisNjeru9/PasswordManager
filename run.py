@@ -73,7 +73,7 @@ def main():
     print('/n')
 
     while True:
-        print("Use these short codes: cc - create new credentials, dc - display credentials, cec - check existing credentials, fc - find credentials, ex -exit the credentials list ")
+        print("Use these short codes: cc - create new credentials, dc - display credentials, dlc - delete existing credentials, fc - find credentials, ex -exit the credentials list ")
 
         short_code = input().lower()
 
@@ -93,7 +93,7 @@ def main():
 
             save_credentials(create_credentials(a_name, a_username, a_password)) #Create and save new credentials
             print('/n')
-            print(f"New Credential {a_name} {a_username} {a_password}")
+            print(f"New Credential {a_name} {a_username} {a_password} created")
             print('/n')
 
 
@@ -127,6 +127,19 @@ def main():
 
             else:
                 print("Those credentials don't exist")
+
+
+        elif short_code == 'dlc':
+            print("Enter the account name you want to delete")
+
+            search_account_name = input()
+            if check_existing_credentials(search_account_name):
+                search_credentials = find_credential(search_account_name)
+                delete_credentials(search_credentials)
+                print(f"The credentials for {search_credentials.account_name} has been deleted!")
+
+            else:
+                print("The credential with that account name does not exist")
 
 
         elif short_code == 'ex':
