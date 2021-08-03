@@ -50,3 +50,8 @@ def find_credential(aname):
 
 
 #Checking if credentials exist
+def check_existing_credentials(aname):
+    '''
+    Function that allows users to check if credentials exist with the account name and return a Boolean.
+    '''
+    return Credentials.credentials_exist(aname)
