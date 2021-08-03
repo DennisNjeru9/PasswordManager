@@ -10,6 +10,7 @@ class TestUser(unittest.TestCase):
         unittest.TestCase: TestCase class that aids in creating test cases.
     '''
 
+
     def setUp(self):
         '''
         Set up method to run each test case.
@@ -25,7 +26,8 @@ class TestUser(unittest.TestCase):
 
         User.password = []
         Credentials.password = []
-    
+
+
     def test_init (self):
         '''
         test init test case to test the proper initialization of user and credentials objects.
@@ -36,6 +38,15 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_credentials.account_name,"Twitter")
         self.assertEqual(self.new_credentials.account_username,"thePhi")
         self.assertEqual(self.new_credentials.account_password,"Monsq!h!997")
+
+
+    def test_save_credentials(self):
+        '''
+        test_save_credentials test case to test if the credentials object is saved into credentials_list object.
+        '''
+
+        self.new_credentials.save_credentials() #saving new credentials
+        self.assertEqual(len(Credentials.credentials_list),1)
 
 if __name__ == '__main__':
     unittest.main()
