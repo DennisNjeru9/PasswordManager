@@ -104,6 +104,19 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.credentials_list),1)
 
 
+    def test_find_credentials_by_account_name(self):
+        '''
+        Test to check if we can find a credential by account_name and display information.
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Facebook", "Kata-naah", "n@4HK@t4")
+        test_credentials.save_credentials()
+
+        found_credentials = Credentials.find_credentials_by_account_name("Facebook")
+        self.assertEqual(found_credentials.account_name, test_credentials.account_name)
+
+
 if __name__ == '__main__':
     unittest.main()
 
