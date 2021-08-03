@@ -38,3 +38,15 @@ def delete_credentials(credentials):
     '''
 
     credentials.delete_credentials()
+
+
+#Finding credentials
+def find_credential(aname):
+    '''
+    Function that helps users to find a credential by name and return the credentials.
+    '''
+
+    return Credentials.find_credentials_by_account_name(aname)
+
+
+#Checking if credentials exist
