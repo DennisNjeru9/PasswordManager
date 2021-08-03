@@ -64,4 +64,78 @@ def display_credentials():
     '''
     return Credentials.display_credentials()
 
+#Function to call the other functions
+def main():
+    print("Hello, Welcome to your Password Manager. Kindly input your username and password")
+    username = input()
 
+    print(f"Hello {username}. What would you like to do?")
+    print('/n')
+
+    while True:
+        print("Use these short codes: cc - create new credentials, dc - display credentials, cec - check existing credentials, fc - find credentials, ex -exit the credentials list ")
+
+        short_code = input().lower()
+
+        if short_code == 'cc':
+            print("New Credential")
+            print("-"*20)
+
+            print("Account name .......")
+            a_name = input()
+
+            print("Account Username .....")
+            a_username = input()
+
+            print("Account Password .....")
+            a_password = input()
+
+
+            save_credentials(create_credentials(a_name, a_username, a_password)) #Create and save new credentials
+            print('/n')
+            print(f"New Credential {a_name} {a_username} {a_password}")
+            print('/n')
+
+
+        elif short_code == 'dc':
+
+            if display_credentials():
+                print("Here is a list of all your credentials")
+                print('/n')
+
+                for credentials in display_credentials():
+                    print(f"{credentials.account_name} {credentials.account_username} {credentials.account_password}")
+                    print('/n')
+
+            else:
+
+                print('/n')
+                print("Password Manager does not contain any saved credentials")
+                print('/n')
+
+        elif short_code == 'fc':
+            print("Enter the account name you want to search for")
+
+            search_account_name = input()
+            if check_existing_credentials(search_account_name):
+                search_credentials = find_credential(search_account_name)
+                print(f"{search_credentials.account_name}")
+                print('-'*20)
+
+                print(f"Account Username ....... {search_credentials.account_username}")
+                print(f"Account Password ....... {search_credentials.account_password}")
+
+            else:
+                print("Those credentials don't exist")
+
+
+        elif short_code == 'ex':
+            print("Thanks for choosing PasswordManager!")
+            break
+
+        else: 
+            print("PasswordManager really did not get that. Please use the short codes")
+
+
+if __name__ == '__main__':
+    main()
