@@ -26,7 +26,7 @@ class Credentials:
     Class that generates new instances of credentials.
     '''
 
-    def __init__(self, account_name, account_password):
+    def __init__(self, account_name, account_username, account_password):
         '''
         Args:
             account_name: The name of the account.
@@ -34,6 +34,7 @@ class Credentials:
         '''
 
         self.account_name = account_name
+        self.account_username = account_username
         self.account_password = account_password
 
     pass

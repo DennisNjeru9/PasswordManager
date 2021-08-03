@@ -15,7 +15,7 @@ class TestUser(unittest.TestCase):
         Set up method to run each test case.
         '''
         self.new_user = User("Monsqih", "monsq!H!997") #Creates user object
-        self.new_credentials = Credentials("Twitter", "Monsq!h!997") #Creates credentials object
+        self.new_credentials = Credentials("Twitter", "thePhi", "Monsq!h!997") #Creates credentials object
 
 
     def tearDown(self):
@@ -26,5 +26,16 @@ class TestUser(unittest.TestCase):
         User.password = []
         Credentials.password = []
     
-    
+    def test_init (self):
+        '''
+        test init test case to test the proper initialization of user and credentials objects.
+        '''
 
+        self.assertEqual(self.new_user.username,"Monsqih")
+        self.assertEqual(self.new_user.password,"monsq!H!997")
+        self.assertEqual(self.new_credentials.account_name,"Twitter")
+        self.assertEqual(self.new_credentials.account_username,"thePhi")
+        self.assertEqual(self.new_credentials.account_password,"Monsq!h!997")
+
+if __name__ == '__main__':
+    unittest.main()
