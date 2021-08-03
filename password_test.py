@@ -16,3 +16,15 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user = User("Monsqih", "monsq!H!997") #Creates user object
         self.new_credentials = Credentials("Twitter", "Monsq!h!997") #Creates credentials object
+
+
+    def tearDown(self):
+        '''
+        tearDown method that cleans up after each test case has run t avoid repitition of input. 
+        '''
+
+        User.password = []
+        Credentials.password = []
+    
+    
+
