@@ -130,6 +130,14 @@ class TestCredentials(unittest.TestCase):
         self.assertTrue(credentials_exist)
 
 
+    def test_display_all_credentials(self):
+        '''
+        Test to check if the application can display all saved credentials.
+        '''
+
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+
+
 if __name__ == '__main__':
     unittest.main()
 
